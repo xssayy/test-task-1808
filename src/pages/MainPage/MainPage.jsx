@@ -6,7 +6,7 @@ import {
   selectAllCampers,
   selectHasLoaded,
 } from "../../redux/campers/selectors";
-import CampersList from "../../components/campersList/campersList";
+import CampersList from "../../components/campersList/campersList.jsx";
 
 const MainPage = () => {
   const [page, setPage] = useState(1);
