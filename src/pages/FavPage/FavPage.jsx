@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import CampersList from "../../components/campersList/campersList";
+import CampersList from "../../components/CampersList/CampersList";
 import Header from "../../components/Header/Header";
 import styles from "./FavPage.module.css";
 import { selectAllFavCampers } from "../../redux/user/selectors";
