@@ -8,6 +8,7 @@ import {
 } from "../../redux/campers/selectors";
 import CampersList from "../../components/CampersList/CampersList";
 import Loader from "../../components/Loader/Loader";
+import Header from "../../components/Header/Header";
 
 const MainPage = () => {
   const [page, setPage] = useState(1);
@@ -38,21 +39,24 @@ const MainPage = () => {
   return isLoading && items.length === 0 ? (
     <Loader />
   ) : (
-    <section>
-      <div className={styles.container}>
-        <h1 className={styles.title}>Our catalogue</h1>
-        <CampersList />
-        {items.length < totalCount && (
-          <button
-            type="button"
-            className={styles.loadMoreButton}
-            onClick={handleLoadMore}
-          >
-            Load more
-          </button>
-        )}
-      </div>
-    </section>
+    <>
+      <Header />
+      <section>
+        <div className={styles.container}>
+          <h1 className={styles.title}>Our catalogue</h1>
+          <CampersList mode={"catalogue"} />
+          {items.length < totalCount && (
+            <button
+              type="button"
+              className={styles.loadMoreButton}
+              onClick={handleLoadMore}
+            >
+              Load more
+            </button>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 

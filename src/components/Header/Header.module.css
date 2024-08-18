@@ -1,0 +1,25 @@
+.header {
+  width: fit-content;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
+.navContainer {
+  display: flex;
+  gap: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.link {
+  color: var(--button);
+  transition: 0.125s ease-in-out;
+}
+
+.link:hover {
+  color: #9b2424;
+}
+
+.active {
+  text-decoration: underline;
+}

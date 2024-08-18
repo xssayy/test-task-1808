@@ -5,9 +5,10 @@ import { selectAllCampers } from "../../redux/campers/selectors";
 import { selectAllFavCampers } from "../../redux/user/selectors";
 import { addToFavList, removeFromFavList } from "../../redux/user/slice";
 
-const CampersList = () => {
+const CampersList = ({ mode }) => {
   const campers = useSelector(selectAllCampers);
   const favCampers = useSelector(selectAllFavCampers);
+  const items = mode === "catalogue" ? campers : favCampers;
   const dispatch = useDispatch();
 
   const toggleFav = (camper) => {
@@ -26,7 +27,7 @@ const CampersList = () => {
 
   return (
     <ul className={styles.campersList}>
-      {campers.map((camper) => {
+      {items.map((camper) => {
         return (
           <li className={styles.camper} key={camper._id}>
             <img className={styles.camperImg} src={camper.gallery[0]} />

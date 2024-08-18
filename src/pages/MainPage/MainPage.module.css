@@ -1,6 +1,6 @@
 .container {
   max-width: 888px;
-  padding-top: 100px;
+  padding: 100px 0;
   margin: 0 auto;
 }
 
@@ -28,7 +28,6 @@
 }
 
 .loadMoreButton:hover,
-.loadMoreButton:active,
-.loadMoreButton:focus {
+.loadMoreButton:active {
   border: 1px solid var(--button);
 }

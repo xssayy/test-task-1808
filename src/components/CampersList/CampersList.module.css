@@ -124,7 +124,6 @@
 }
 
 .showMoreButton:hover,
-.showMoreButton:active,
-.showMoreButton:focus {
+.showMoreButton:active {
   background: #d84343;
 }
