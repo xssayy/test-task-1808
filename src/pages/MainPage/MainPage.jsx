@@ -17,7 +17,7 @@ const MainPage = () => {
 
   const isLoading = useSelector(selectIsLoading);
   const items = useSelector(selectAllCampers);
-  const totalCount = 17;
+  const totalCount = 13;
 
   const limit = 4;
   const handleLoadMore = () => {
