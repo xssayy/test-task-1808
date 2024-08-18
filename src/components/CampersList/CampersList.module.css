@@ -1,3 +1,7 @@
+.noScroll {
+  overflow: hidden;
+}
+
 .campersList {
   display: flex;
   flex-direction: column;

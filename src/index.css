@@ -59,3 +59,31 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.ps {
+  max-height: calc(100% - 40px); /* Высота контейнера скролла */
+  overflow: hidden; /* Отключаем стандартный скролл */
+}
+
+.ps__rail-y {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  right: 20px !important;
+}
+
+.ps__rail-y .ps__thumb-y {
+  border-radius: 7px;
+  width: 8px;
+}
+
+.ps__rail-y .ps__thumb-y:hover {
+  background-color: #666666;
+}
+
+.ps__rail-y:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  background-color: #aaaaaa;
+}
