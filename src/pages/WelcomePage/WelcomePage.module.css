@@ -19,7 +19,7 @@
 
 .title {
   color: #e67e22; /* Мягкий оранжевый для заголовка */
-  font-size: 3rem;
+  font-size: 48px;
   font-weight: bold;
   text-align: center;
   margin: 0;
@@ -28,7 +28,7 @@
 
 .description {
   color: #f39c12; /* Более теплый и менее насыщенный оранжевый для описания */
-  font-size: 1.25rem;
+  font-size: 24px;
   text-align: center;
   margin: 0;
   max-width: 50%;

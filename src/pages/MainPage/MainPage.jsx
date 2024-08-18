@@ -24,17 +24,13 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    // Загрузка данных при монтировании компонента и при изменении страницы
     if (items.length === 0) {
-      console.log("LOG");
       dispatch(fetchCampers(1, limit));
     }
   }, [dispatch, items.length, limit]);
 
   useEffect(() => {
     if (page > 1) {
-      console.log("LOG 2");
-
       dispatch(fetchCampers({ page, limit }));
     }
   }, [dispatch, page, limit]);
@@ -44,6 +40,7 @@ const MainPage = () => {
   ) : (
     <section>
       <div className={styles.container}>
+        <h1 className={styles.title}>Our catalogue</h1>
         <CampersList />
         {items.length < totalCount && (
           <button

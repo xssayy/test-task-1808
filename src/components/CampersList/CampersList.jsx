@@ -1,10 +1,28 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./CampersList.module.css";
 import Icon from "../Icon/Icon";
 import { selectAllCampers } from "../../redux/campers/selectors";
+import { selectAllFavCampers } from "../../redux/user/selectors";
+import { addToFavList, removeFromFavList } from "../../redux/user/slice";
 
 const CampersList = () => {
   const campers = useSelector(selectAllCampers);
+  const favCampers = useSelector(selectAllFavCampers);
+  const dispatch = useDispatch();
+
+  const toggleFav = (camper) => {
+    const isCamperInFavList = favCampers.some(
+      (favCamper) => favCamper._id === camper._id
+    );
+    console.log(isCamperInFavList);
+    if (!isCamperInFavList) {
+      console.log("added");
+      dispatch(addToFavList(camper));
+    } else {
+      console.log("removed");
+      dispatch(removeFromFavList(camper._id));
+    }
+  };
 
   return (
     <ul className={styles.campersList}>
@@ -20,14 +38,26 @@ const CampersList = () => {
                   <button
                     type="button"
                     aria-label="Add to favourites"
+                    onClick={() => toggleFav(camper)}
                     className={styles.favButton}
                   >
-                    <Icon
-                      id={"heart"}
-                      width={25}
-                      height={25}
-                      className={styles.favIcon}
-                    />
+                    {favCampers.some(
+                      (favCamper) => favCamper._id === camper._id
+                    ) ? (
+                      <Icon
+                        id={"heart-red"}
+                        width={25}
+                        height={25}
+                        className={styles.favIcon}
+                      />
+                    ) : (
+                      <Icon
+                        id={"heart"}
+                        width={25}
+                        height={25}
+                        className={styles.favIcon}
+                      />
+                    )}
                   </button>
                 </div>
               </div>

@@ -8,11 +8,11 @@ const usersSlice = createSlice({
   reducers: {
     addToFavList(state, action) {
       const camper = action.payload;
-      state.selectAllFavCampers.push(camper);
+      state.favCampers.push(camper);
     },
     removeFromFavList(state, action) {
       const camperId = action.payload;
-      state.selectAllFavCampers = state.selectAllFavCampers.filter(
+      state.favCampers = state.favCampers.filter(
         (camper) => camper._id !== camperId
       );
     },
