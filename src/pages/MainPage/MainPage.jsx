@@ -4,53 +4,57 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/campers/operations";
 import {
   selectAllCampers,
-  selectHasLoaded,
+  selectIsLoading,
 } from "../../redux/campers/selectors";
 import CampersList from "../../components/CampersList/CampersList";
+import Loader from "../../components/Loader/Loader";
 
 const MainPage = () => {
   const [page, setPage] = useState(1);
 
   const dispatch = useDispatch();
 
-  const hasLoaded = useSelector(selectHasLoaded);
+  const isLoading = useSelector(selectIsLoading);
   const items = useSelector(selectAllCampers);
+  const totalCount = 17;
+
+  const limit = 4;
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
   useEffect(() => {
-    // Загрузка данных при монтировании компонента
-    console.log(hasLoaded);
-
-    if (hasLoaded === false) {
-      dispatch(fetchCampers(1, 4));
-      console.log("SOME LOG");
+    // Загрузка данных при монтировании компонента и при изменении страницы
+    if (items.length === 0) {
+      console.log("LOG");
+      dispatch(fetchCampers(1, limit));
     }
-  }, [dispatch, hasLoaded]);
+  }, [dispatch, items.length, limit]);
 
   useEffect(() => {
-    console.log(items);
-  }, [items]);
-
-  useEffect(() => {
-    // Загрузка данных при изменении страницы, если данные уже загружены
     if (page > 1) {
-      console.log("qe");
-      dispatch(fetchCampers({ page, limit: 4 }));
-    }
-  }, [dispatch, page]);
+      console.log("LOG 2");
 
-  return (
+      dispatch(fetchCampers({ page, limit }));
+    }
+  }, [dispatch, page, limit]);
+
+  return isLoading && items.length === 0 ? (
+    <Loader />
+  ) : (
     <section>
-      <CampersList />
-      <button
-        type="button"
-        className={styles.loadMoreButton}
-        onClick={handleLoadMore}
-      >
-        Load more
-      </button>
+      <div className={styles.container}>
+        <CampersList />
+        {items.length < totalCount && (
+          <button
+            type="button"
+            className={styles.loadMoreButton}
+            onClick={handleLoadMore}
+          >
+            Load more
+          </button>
+        )}
+      </div>
     </section>
   );
 };

@@ -17,6 +17,7 @@ const campersSlice = createSlice({
     isLoading: false,
     error: null,
     hasLoaded: false,
+    totalCount: 0,
   },
   extraReducers: (builder) => {
     builder
@@ -25,7 +26,8 @@ const campersSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.hasLoaded = true;
-        state.items = [...state.items, ...action.payload];
+        state.items = [...state.items, ...action.payload.data];
+        state.totalCount = action.payload.totalCount;
       })
       .addCase(fetchCampers.rejected, handleRejected);
   },

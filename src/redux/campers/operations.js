@@ -15,7 +15,14 @@ export const fetchCampers = createAsyncThunk(
           limit,
         },
       });
-      return res.data;
+      // Получение общего количества элементов из заголовка
+      const totalCount = res.headers["x-total-count"];
+
+      // Возвращаем данные и общее количество элементов
+      return {
+        data: res.data,
+        totalCount: totalCount,
+      };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
