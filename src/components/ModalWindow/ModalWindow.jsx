@@ -6,6 +6,7 @@ import Icon from "../Icon/Icon";
 import { nanoid } from "@reduxjs/toolkit";
 import { useState } from "react";
 import Features from "../Features/Features";
+import Reviews from "../Reviews/Reviews";
 
 Modal.setAppElement("#root");
 const ModalWindow = ({ isOpen, closeModal, camper }) => {
@@ -29,24 +30,14 @@ const ModalWindow = ({ isOpen, closeModal, camper }) => {
           <p className={styles.camperName}>{camper.name}</p>
           <div className={styles.camperRatingAndLocation}>
             <div className={styles.camperRatingContainer}>
-              <Icon
-                id={"star"}
-                width={25}
-                height={25}
-                className={styles.favIcon}
-              />
+              <Icon id={"star"} width={25} height={25} fillColor="#ffc531" />
               <p className={styles.camperRating}>
                 {camper.rating}
                 {`(${camper.reviews.length} Reviews)`}
               </p>
             </div>
             <div className={styles.camperLocationContainer}>
-              <Icon
-                id={"map-pin"}
-                width={16}
-                height={16}
-                className={styles.favIcon}
-              />
+              <Icon id={"map-pin"} width={16} height={16} />
               <p className={styles.camperLocation}>{camper.location}</p>
             </div>
           </div>
@@ -82,10 +73,26 @@ const ModalWindow = ({ isOpen, closeModal, camper }) => {
                 Reviews
               </p>
             </div>
-            {isFeaturesActive ? <Features camper={camper} /> : <p>we</p>}
+            {isFeaturesActive ? (
+              <Features camper={camper} />
+            ) : (
+              <Reviews camper={camper} />
+            )}
           </div>
         </PerfectScrollbar>
       </div>
+      <button
+        type="button"
+        className={styles.closeModalButton}
+        onClick={closeModal}
+      >
+        <Icon
+          id="close-button"
+          className={styles.closeModalIcon}
+          width={32}
+          height={32}
+        />
+      </button>
     </Modal>
   );
 };

@@ -1,0 +1,92 @@
+.container {
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  padding: 24px;
+  width: 50%;
+  height: fit-content;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input {
+  padding: 18px;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--inputs);
+  border: none;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+}
+
+.input::placeholder {
+  color: rgba(16, 24, 40, 0.6);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input:focus.input::placeholder {
+  color: var(--main);
+}
+
+.dateInput {
+  position: relative;
+}
+
+.calendarIcon {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+
+.textarea {
+  composes: input;
+  resize: none;
+}
+
+.error {
+  color: var(--button);
+}
+
+.submitButton {
+  background: var(--button);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+  padding: 18px 60px;
+  margin-top: 10px;
+  width: fit-content;
+  border-radius: 200px;
+
+  transition: 0.125s ease-in-out;
+}
+
+.submitButton:hover,
+.submitButton:active {
+  background: #d84343;
+}

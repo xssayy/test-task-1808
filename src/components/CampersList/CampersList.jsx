@@ -68,19 +68,9 @@ const CampersList = ({ mode }) => {
                       {favCampers.some(
                         (favCamper) => favCamper._id === camper._id
                       ) ? (
-                        <Icon
-                          id={"heart-red"}
-                          width={25}
-                          height={25}
-                          className={styles.favIcon}
-                        />
+                        <Icon id={"heart-red"} width={25} height={25} />
                       ) : (
-                        <Icon
-                          id={"heart"}
-                          width={25}
-                          height={25}
-                          className={styles.favIcon}
-                        />
+                        <Icon id={"heart"} width={25} height={25} />
                       )}
                     </button>
                   </div>
@@ -91,7 +81,7 @@ const CampersList = ({ mode }) => {
                       id={"star"}
                       width={25}
                       height={25}
-                      className={styles.favIcon}
+                      fillColor="#ffc531"
                     />
                     <p className={styles.camperRating}>
                       {camper.rating}
@@ -99,12 +89,7 @@ const CampersList = ({ mode }) => {
                     </p>
                   </div>
                   <div className={styles.camperLocationContainer}>
-                    <Icon
-                      id={"map-pin"}
-                      width={16}
-                      height={16}
-                      className={styles.favIcon}
-                    />
+                    <Icon id={"map-pin"} width={16} height={16} />
                     <p className={styles.camperLocation}>{camper.location}</p>
                   </div>
                 </div>

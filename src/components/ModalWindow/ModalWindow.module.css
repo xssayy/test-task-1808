@@ -3,7 +3,7 @@
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   border: none;
-  padding: 40px 0;
+  padding: 40px 0 0;
 
   position: fixed;
   top: 50%;
@@ -22,24 +22,27 @@
 }
 
 .scrollbarContainer {
-  max-height: 40vh;
+  max-height: 48vh;
   overflow: hidden;
   padding: 0 40px;
 }
 
-.btnClose {
-  width: 24px;
-  height: 24px;
+.closeModalButton {
   background-color: inherit;
   position: absolute;
-  top: 20px;
-  right: 16px;
-  fill: var(--main-text);
+  top: 40px;
+  right: 40px;
+  width: 32px;
+  height: 32px;
 }
 
-.btnClose:hover,
-.btnClose:focus {
-  fill: var(--accent);
+.closeModalIcon {
+  transition: 0.125s ease-in-out;
+}
+
+.closeModalIcon:hover,
+.closeModalIcon:focus {
+  fill: var(--button);
 }
 
 .camperName,
